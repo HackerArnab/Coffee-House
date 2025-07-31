@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>gallery</title>
+    <link rel="stylesheet" href="css/styles1.css">
+</head>
+<body>
+    <div class="gallery">
+    <img src="image/img-1.jpg" alt="Coffee Shop 1" onclick="openPreview(this)">
+    <img src="image/img-2.jpg" alt="Coffee Shop 2" onclick="openPreview(this)">
+    <img src="image/img-3.jpg" alt="Coffee Shop 3" onclick="openPreview(this)">
+    <img src="image/img-4.jpg" alt="Coffee Shop 4" onclick="openPreview(this)">
+    <img src="image/img-5.jpg" alt="Coffee Shop 5" onclick="openPreview(this)">
+    <img src="image/img-6.jpg" alt="Coffee Shop 6" onclick="openPreview(this)">
+    <img src="image/img-7.jpg" alt="Coffee Shop 7" onclick="openPreview(this)">
+    <img src="image/img-8.jpg" alt="Coffee Shop 8" onclick="openPreview(this)">
+    <img src="image/img-9.jpg" alt="Coffee Shop 9" onclick="openPreview(this)">
+    <img src="image/img-10.jpg" alt="Coffee Shop 10" onclick="openPreview(this)">
+    <img src="image/img-11.jpg" alt="Coffee Shop 11" onclick="openPreview(this)">
+  </div>
+
+  <div id="previewContainer" onclick="closePreview()">
+    <img id="previewImage" src="" alt="Preview">
+  </div>
+
+  <!-- Animation Area Start -->
+  <div class="animation-area">
+    <div class="coffee-cup">
+      ☕
+      <div class="steam"></div>
+    </div>
+    <div class="coffee-quote" id="quoteBox">
+      “Life begins after coffee.” ☕
+    </div>
+  </div>
+  <!-- Animation Area End -->
+
+
+  
+  <script>
+    function openPreview(img) {
+      const preview = document.getElementById('previewImage');
+      preview.src = img.src;
+      document.getElementById('previewContainer').classList.add('show');
+    }
+
+    function closePreview() {
+      const container = document.getElementById('previewContainer');
+      container.classList.remove('show');
+      container.classList.add('hide');
+
+      setTimeout(() => {
+        container.classList.remove('hide');
+      }, 500);
+    }
+
+    // Coffee quote animation for main quoteBox
+   const quotes = [
+    "“Life begins after coffee.” ☕",
+    "“Coffee is a hug in a mug.” ☕",
+    "“Espresso yourself!” ☕",
+    "“Stressed, blessed, and coffee obsessed.” ☕",
+    "“But first, coffee.” ☕"
+  ];
+
+  let quoteIndex = 0;
+
+  // Get all quote box elements
+  const quoteBoxes = [
+    document.getElementById('quoteBox1'),
+    document.getElementById('quoteBox2')
+  ];
+
+  // Rotate quotes every 6 seconds
+  setInterval(() => {
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+    quoteBoxes.forEach(box => {
+      box.innerText = quotes[quoteIndex];
+    });
+  }, 6000);
+
+
+const gallery = document.querySelector('.gallery');
+const galleryRect = gallery.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+const windowWidth = window.innerWidth;
+
+console.log("Unused space below:", windowHeight - galleryRect.bottom);
+console.log("Unused space on the side:", windowWidth - galleryRect.right);
+
+  </script>     
+    
+</body>
+</html>

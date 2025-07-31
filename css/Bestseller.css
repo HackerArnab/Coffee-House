@@ -1,0 +1,142 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #508879;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== Animated Gradient Background for Menu Section ===== */
+.menu-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  position: relative;
+  background: linear-gradient(-45deg, #b47b84, #ffe9ec, #f6d8ae, #d8bfd8);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* ===== Gradient Animation Keyframes ===== */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Section Titles ===== */
+.menu-section h2 {
+  font-size: 22px;
+  color: #1e1e1e;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #141313;
+  margin-bottom: 30px;
+}
+
+/* ===== Card Layout ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Individual Menu Card ===== */
+.menu-card {
+  background: #f8f8f8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  padding: 16px;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f1a311;
+}
+
+.menu-info {
+  flex: 1;
+}
+
+.menu-info h3 {
+  font-size: 15px;
+  margin: 4px 0;
+  color: #1e1e1e;
+}
+
+/* ===== Floating Coffee Beans Animation ===== */
+.floating-beans {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-beans .bean {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: url('coffee-bean.png') no-repeat center/contain;
+  opacity: 0.3;
+  animation: floatBean 20s linear infinite;
+}
+
+.floating-beans .bean:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-beans .bean:nth-child(2) { left: 30%; animation-delay: 4s; }
+.floating-beans .bean:nth-child(3) { left: 50%; animation-delay: 8s; }
+.floating-beans .bean:nth-child(4) { left: 70%; animation-delay: 12s; }
+.floating-beans .bean:nth-child(5) { left: 90%; animation-delay: 16s; }
+
+@keyframes floatBean {
+  0% { top: 100%; transform: rotate(0deg); }
+  100% { top: -10%; transform: rotate(360deg); }
+}
+
+/* ===== Button Styling & Hover Effect ===== */
+.menu-card button,
+.menu-card .add-button {
+  padding: 8px 16px;
+  background-color:#a0e2c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card button:hover,
+.menu-card .add-button:hover {
+  background-color: #009900;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.payment {
+  color: #1e6334;
+  text-decoration: none;
+  font-weight: 600;
+}
